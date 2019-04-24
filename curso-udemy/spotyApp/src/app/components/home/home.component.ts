@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SpotyfyService } from 'src/app/services/spotyfy.service';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +8,17 @@ import { HttpClient } from '@angular/common/http';
   styles: []
 })
 export class HomeComponent implements OnInit {
-  paises: any[];
-  constructor(private http: HttpClient) {
-    this.http.get('https://restcountries.eu/rest/v2/lang/es').
-    subscribe((response: any[]) => {
-      this.paises = response;
-    });
+  songs: any[];
+  constructor(private spotyfyService: SpotyfyService) {
   }
 
   ngOnInit() {
+    this.spotyfyService.getNewReleases().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.songs = response.albums.items; 
+      } 
+    )
   }
 
 }

@@ -19,6 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
     ArtistaComponent,
     NavbarComponent
   ],
+
+  //Modules se ubican principalmente en los imports
   imports: [
     BrowserModule,
     AppRoutingModule,
