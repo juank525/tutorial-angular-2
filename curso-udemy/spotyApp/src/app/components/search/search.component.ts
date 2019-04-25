@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
       (response: any) => {
         console.log("***** ARTISTAS ******");
         console.log(response);
-        this.artists = response.artists.items;
+        this.artists = response;
       }
     )
   }

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     this.spotyfyService.getNewReleases().subscribe(
       (response: any) => {
         console.log(response);
-        this.songs = response.albums.items; 
+        this.songs = response; 
       } 
     )
   }

@@ -3,17 +3,7 @@
         <input #termino type="text" (keyup)="search(termino.value)" class="form-control">
     </div>
 
-    <div class="card-columns">
-        <div class="card" *ngFor="let artist of artists">
-            <img [src]="artist.images[1].url" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{artist.name}}</h5>
-                <p class="card-text">
-                    <span class="badge badge-light" *ngFor="let genre of artist.genres">{{genre}}</span>
-                </p>
-            </div>
-        </div>
-    </div>
+    <app-tarjetas [items]="artists"></app-tarjetas>
 </div>
 
 
