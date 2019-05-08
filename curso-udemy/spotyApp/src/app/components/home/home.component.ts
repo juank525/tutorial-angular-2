@@ -9,14 +9,17 @@ import { SpotyfyService } from 'src/app/services/spotyfy.service';
 })
 export class HomeComponent implements OnInit {
   songs: any[];
+  loading: boolean;
   constructor(private spotyfyService: SpotyfyService) {
+    this.loading = true;
   }
 
   ngOnInit() {
     this.spotyfyService.getNewReleases().subscribe(
       (response: any) => {
         console.log(response);
-        this.songs = response; 
+        this.songs = response;
+        this.loading = false;
       } 
     )
   }

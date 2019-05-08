@@ -2,10 +2,9 @@
     <div class="col">
         <input #termino type="text" (keyup)="search(termino.value)" class="form-control">
     </div>
-
-    <app-tarjetas [items]="artists"></app-tarjetas>
 </div>
-
+<app-loading *ngIf="loading" class="m-5"></app-loading><br>
+<app-tarjetas [items]="artists" *ngIf="!loading"></app-tarjetas>
 
 
 <!-- #termino capturar la referencia local-->
